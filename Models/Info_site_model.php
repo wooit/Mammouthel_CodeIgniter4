@@ -22,7 +22,7 @@ namespace App\Models{
         public function get_notes($p)
         {
             $db = \Config\Database::connect();
-            $query_notes = $db->query("SELECT title, content, date, Sites.location FROM Notes INNER JOIN Sites ON Notes.note_id = Sites.note_id WHERE Sites.site_id = $p")->getResult();
+            $query_notes = $db->query("SELECT title, content, date, Sites.location FROM Notes INNER JOIN Sites ON Notes.site_id = Sites.site_id WHERE Sites.site_id = $p")->getResult();
             return $query_notes;
         }
 
